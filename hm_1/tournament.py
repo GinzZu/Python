@@ -3,10 +3,10 @@ import random
 from prettytable import PrettyTable
 
 t1 = {"place" : 0,"name" : "Real Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t2 = {"place" : 0,"name" : "Barselona", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
+t2  = {"place" : 0,"name" : "Barselona", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t3 = {"place" : 0,"name" : "Valensia", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t4 = {"place" : 0,"name" : "Sevilla", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t5 = {"place" : 0,"name" : "Atletico Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
+t5 = {"place" : 0,"name" : " Atletico Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t6 = {"place" : 0,"name" : "Real Betis", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 
 
@@ -18,20 +18,20 @@ def print_match():
     team2 = input("Введите название второй команды: ")
     a = True
     for elem in Results:
-        if team1 == elem["team1"] and team2 == elem["team2"]:
+        if team1.lower() == elem["team1"].lower() and team2.lower() == elem["team2"].lower():
             print(team1, elem["acc1"],"-",elem["acc2"],team2)
             a = False
             break
-        elif team2 == elem["team1"] and team1 == elem["team2"]:
+        elif team2.lower() == elem["team1"].lower() and team1.lower() == elem["team2"].lower():
             print(team2, elem["acc1"],"-",elem["acc2"],team1)
             a = False
             break
-        elif team1 == team2:
-            print("\nТренировочные матчи не в счет ;)\n")
+        elif team1.lower() == team2.lower():
+            print("Тренировочные матчи не в счет ;)")
             return
-    if a :
-        print("\nТаких у нас не водится")
-        print("Попробуйте еще разок\n")
+    if a:
+        print("Таких у нас не водится\n")
+        print("Попробуйте еще разок")
         return
 
 def request():
@@ -43,8 +43,8 @@ def request():
         print_match()
         request()
     else:
-        print("Я вас не понял, давайте еще разок")
-        request()
+        print("Ваш ответ расценен как нет, пока!")
+        return
     
 def print_table():
     th = ["Место", "Команда", "Победы", "Поражения", "Ничьи", "Забито", "Пропущено", "Очки"]
@@ -95,7 +95,6 @@ def places():
         i += 1
 
 def turich():
-    score = 0
     for team1 in LaLeague:
         for team2 in LaLeague:
             if team1 == team2:
