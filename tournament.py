@@ -100,6 +100,7 @@ def turich():
             match(team1,team2)
     places()
     print_table()
+    
 def main():
     turich()
     request()
