@@ -40,7 +40,7 @@ def request():
         print_match()
         request()
     else:
-        print("Ваш ответ расценен как нет, датвиданья")
+        print("Ваш ответ расценен как нет, пока!")
         return
     
 def print_table():
