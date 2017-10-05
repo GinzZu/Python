@@ -3,10 +3,10 @@ import random
 from prettytable import PrettyTable
 
 t1 = {"place" : 0,"name" : "Real Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t2  = {"place" : 0,"name" : "Barselona", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
+t2 = {"place" : 0,"name" : "Barselona", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t3 = {"place" : 0,"name" : "Valensia", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t4 = {"place" : 0,"name" : "Sevilla", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t5 = {"place" : 0,"name" : " Atletico Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
+t5 = {"place" : 0,"name" : "Atletico Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 t6 = {"place" : 0,"name" : "Real Betis", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 
 
@@ -16,19 +16,22 @@ Results = []
 def print_match():
     team1 = input("Введите название первой команды: ")
     team2 = input("Введите название второй команды: ")
-    a = False
+    a = True
     for elem in Results:
         if team1 == elem["team1"] and team2 == elem["team2"]:
             print(team1, elem["acc1"],"-",elem["acc2"],team2)
-            a = True
+            a = False
             break
         elif team2 == elem["team1"] and team1 == elem["team2"]:
             print(team2, elem["acc1"],"-",elem["acc2"],team1)
-            a = True
+            a = False
             break
-    if a == False:
-        print("Таких у нас не водится\n")
-        print("Попробуйте еще разок")
+        elif team1 == team2:
+            print("\nТренировочные матчи не в счет ;)\n")
+            return
+    if a :
+        print("\nТаких у нас не водится")
+        print("Попробуйте еще разок\n")
         return
 
 def request():
@@ -40,8 +43,8 @@ def request():
         print_match()
         request()
     else:
-        print("Ваш ответ расценен как нет, пока!")
-        return
+        print("Я вас не понял, давайте еще разок")
+        request()
     
 def print_table():
     th = ["Место", "Команда", "Победы", "Поражения", "Ничьи", "Забито", "Пропущено", "Очки"]
