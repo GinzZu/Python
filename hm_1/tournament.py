@@ -2,15 +2,15 @@
 import random
 from prettytable import PrettyTable
 
-t1 = {"place" : 0,"name" : "Real Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t2 = {"place" : 0,"name" : "Barselona", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t3 = {"place" : 0,"name" : "Valensia", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t4 = {"place" : 0,"name" : "Sevilla", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t5 = {"place" : 0,"name" : "Atletico Madrid", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
-t6 = {"place" : 0,"name" : "Real Betis", "wins" : 0, "losses" : 0, "draws" : 0, "goals" : 0, "miss" : 0, "score" : 0}
 
+a = int(input("Введите количество команд: ")) 
+LaLeague = [] 
+for elems in range(a): 
+    team_name = input() 
+    team = {"place" : 0, "name": team_name, "wins": 0, "losses": 0, "draws": 0, 
+"goals": 0, "miss": 0, "score": 0}
+    LaLeague.append(team) 
 
-LaLeague = [t1,t2,t3,t4,t5,t6]
 Results = []
 
 def print_match():
